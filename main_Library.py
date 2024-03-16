@@ -1338,78 +1338,174 @@ def getMLBStat(*args):
             # Pitcher Vs. Left Stats
             #________________________________________________________________
             elif userChoices[pitcherStat_Count] == PITCHER_VSLEFT_HITS:
- 
-                pitcher_vsleft_games = int(get_statData(connection, playerName,"pitcher_vsleft_stats", "Hits"))
+                
+                try:
 
-                statsToReturn.append(pitcher_vsleft_games)
+                    # Retrieve Pitcher hits allowed vs left handed batters pitched from data base
+                    pitcher_vsleft_hits = get_statData(connection, playerName,"pitcher_vsleft_stats", "Hits")
+
+                    # Append Pitcher hits allowed vs left handed batters pitched to statsToReturn
+                    statsToReturn.append(int(pitcher_vsleft_hits))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
             elif userChoices[pitcherStat_Count] == PITCHER_VSLEFT_HOMERUNS:
- 
-                pitcher_vsleft_games = int(get_statData(connection, playerName,"pitcher_vsleft_stats", "HomeRuns"))
+                
+                try:
 
-                statsToReturn.append(pitcher_vsleft_games)
+                    # Retrieve Pitcher homeruns allowed vs left handed batters pitched from data base
+                    pitcher_vsleft_homeruns = get_statData(connection, playerName,"pitcher_vsleft_stats", "HomeRuns")
+
+                    # Append Pitcher homeruns allowed vs left handed batters pitched to statsToReturn
+                    statsToReturn.append(int(pitcher_vsleft_homeruns))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
             elif userChoices[pitcherStat_Count] == PITCHER_VSLEFT_WALKS:
  
-                pitcher_vsleft_games = int(get_statData(connection, playerName,"pitcher_vsleft_stats", "Walks"))
+                try:
 
-                statsToReturn.append(pitcher_vsleft_games)
+                    # Retrieve Pitcher walks vs left handed batters pitched from data base
+                    pitcher_vsleft_walks = get_statData(connection, playerName,"pitcher_vsleft_stats", "Walks")
+
+                    # Append Pitcher walks vs left handed batters pitched to statsToReturn
+                    statsToReturn.append(int(pitcher_vsleft_walks))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
             elif userChoices[pitcherStat_Count] == PITCHER_VSLEFT_STRIKEOUTS:
  
-                pitcher_vsleft_games = int(get_statData(connection, playerName,"pitcher_vsleft_stats", "Strikeouts"))
+                try:
 
-                statsToReturn.append(pitcher_vsleft_games)
+                    # Retrieve Pitcher strikeouts vs left handed batters pitched from data base
+                    pitcher_vsleft_strikeouts = get_statData(connection, playerName,"pitcher_vsleft_stats", "Strikeouts")
+
+                    # Append Pitcher strikeouts vs left handed batters pitched to statsToReturn
+                    statsToReturn.append(int(pitcher_vsleft_strikeouts))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
             elif userChoices[pitcherStat_Count] == PITCHER_VSLEFT_WHIP:
  
-                pitcher_vsleft_games = float(get_statData(connection, playerName,"pitcher_vsleft_stats", "WHIP"))
+                try:
 
-                statsToReturn.append(pitcher_vsleft_games)
+                    # Retrieve Pitcher WHIP vs left handed batters pitched from data base
+                    pitcher_vsleft_WHIP = get_statData(connection, playerName,"pitcher_vsleft_stats", "WHIP")
+
+                    # Append Pitcher WHIP vs left handed batters pitched to statsToReturn
+                    statsToReturn.append(float(pitcher_vsleft_WHIP))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1.0)
                 
             elif userChoices[pitcherStat_Count] == PITCHER_VSLEFT_BATTINGAVG:
  
-                pitcher_vsleft_games = float(get_statData(connection, playerName,"pitcher_vsleft_stats", "Batting_AVG"))
+                try:
 
-                statsToReturn.append(pitcher_vsleft_games)
+                    # Retrieve Pitcher batting average allowed vs left handed batters pitched from data base
+                    pitcher_vsleft_battingAVG = get_statData(connection, playerName,"pitcher_vsleft_stats", "Batting_AVG")
+
+                    # Append Pitcher batting average allowed vs left handed batters pitched to statsToReturn
+                    statsToReturn.append(float(pitcher_vsleft_battingAVG))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(0.111)
                            
             # Pitcher Vs. right Stats
             #________________________________________________________________
             elif userChoices[pitcherStat_Count] == PITCHER_VSRIGHT_HITS:
  
-                pitcher_vsright_games = int(get_statData(connection, playerName,"pitcher_vsright_stats", "Hits"))
+                try:
 
-                statsToReturn.append(pitcher_vsright_games)
+                    # Retrieve Pitcher hits allowed vs right handed batters pitched from data base
+                    pitcher_vsright_hits = get_statData(connection, playerName,"pitcher_vsright_stats", "Hits")
+
+                    # Append Pitcher hits allowed vs right handed batters pitched to statsToReturn
+                    statsToReturn.append(int(pitcher_vsright_hits))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
             elif userChoices[pitcherStat_Count] == PITCHER_VSRIGHT_HOMERUNS:
- 
-                pitcher_vsright_games = int(get_statData(connection, playerName,"pitcher_vsright_stats", "HomeRuns"))
+                
+                try:
 
-                statsToReturn.append(pitcher_vsright_games)
+                    # Retrieve Pitcher homeruns allowed vs right handed batters pitched from data base
+                    pitcher_vsright_homeruns = get_statData(connection, playerName,"pitcher_vsright_stats", "HomeRuns")
+
+                    # Append Pitcher homeruns allowed vs right handed batters pitched to statsToReturn
+                    statsToReturn.append(int(pitcher_vsright_homeruns))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
             elif userChoices[pitcherStat_Count] == PITCHER_VSRIGHT_WALKS:
  
-                pitcher_vsright_games = int(get_statData(connection, playerName,"pitcher_vsright_stats", "Walks"))
+                try:
 
-                statsToReturn.append(pitcher_vsright_games)
+                    # Retrieve Pitcher walks vs right handed batters pitched from data base
+                    pitcher_vsright_walks = get_statData(connection, playerName,"pitcher_vsright_stats", "Walks")
+
+                    # Append Pitcher walks vs right handed batters pitched to statsToReturn
+                    statsToReturn.append(int(pitcher_vsright_walks))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
             elif userChoices[pitcherStat_Count] == PITCHER_VSRIGHT_STRIKEOUTS:
  
-                pitcher_vsright_games = int(get_statData(connection, playerName,"pitcher_vsright_stats", "Strikeouts"))
+                try:
 
-                statsToReturn.append(pitcher_vsright_games)
+                    # Retrieve Pitcher strikeouts vs right handed batters pitched from data base
+                    pitcher_vsright_strikeouts = get_statData(connection, playerName,"pitcher_vsright_stats", "Strikeouts")
+
+                    # Append Pitcher strikeouts vs right handed batters pitched to statsToReturn
+                    statsToReturn.append(int(pitcher_vsright_strikeouts))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
             elif userChoices[pitcherStat_Count] == PITCHER_VSRIGHT_WHIP:
  
-                pitcher_vsright_games = float(get_statData(connection, playerName,"pitcher_vsright_stats", "WHIP"))
+                try:
 
-                statsToReturn.append(pitcher_vsright_games)
+                    # Retrieve Pitcher WHIP vs right handed batters pitched from data base
+                    pitcher_vsright_WHIP = get_statData(connection, playerName,"pitcher_vsright_stats", "WHIP")
+
+                    # Append Pitcher WHIP vs right handed batters pitched to statsToReturn
+                    statsToReturn.append(float(pitcher_vsright_WHIP))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1.0)
                 
             elif userChoices[pitcherStat_Count] == PITCHER_VSRIGHT_BATTINGAVG:
  
-                pitcher_vsright_games = float(get_statData(connection, playerName,"pitcher_vsright_stats", "Batting_AVG"))
+                try:
 
-                statsToReturn.append(pitcher_vsright_games)
+                    # Retrieve Pitcher batting average allowed vs right handed batters pitched from data base
+                    pitcher_vsright_battingAVG = get_statData(connection, playerName,"pitcher_vsright_stats", "Batting_AVG")
+
+                    # Append Pitcher batting average allowed vs right handed batters pitched to statsToReturn
+                    statsToReturn.append(float(pitcher_vsright_battingAVG))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1.0)
              
             # Pitcher Total Calculations
             #________________________________________________________________ 
@@ -2375,398 +2471,814 @@ def getMLBStat(*args):
             #________________________________________________________________
             if userChoices[batterStat_Count] == BATTER_TOTAL_GAMES:
                 
-                batter_total_games = int(get_statData(connection, playerName,"batter_total_stats", "Games_Played"))
-               
-                statsToReturn.append(batter_total_games)
+                try:
+
+                    # Retrieve Batter total games from data base
+                    batter_total_games = get_statData(connection, playerName,"batter_total_stats", "Games_Played")
                 
-            if userChoices[batterStat_Count] == BATTER_TOTAL_ATBATS:
+                    # Append Batter total games to statsToReturn
+                    statsToReturn.append(int(batter_total_games))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_total_atbats = int(get_statData(connection, playerName,"batter_total_stats", "AtBats"))
-               
-                statsToReturn.append(batter_total_atbats)
+            elif userChoices[batterStat_Count] == BATTER_TOTAL_ATBATS:
                 
-            if userChoices[batterStat_Count] == BATTER_TOTAL_RUNS:
+                try:
+
+                    # Retrieve Batter total at bats from data base
+                    batter_total_atbats = get_statData(connection, playerName,"batter_total_stats", "AtBats")
                 
-                batter_total_runs = int(get_statData(connection, playerName,"batter_total_stats", "Runs"))
-               
-                statsToReturn.append(batter_total_runs)
+                    # Append Batter total at bats to statsToReturn
+                    statsToReturn.append(int(batter_total_atbats))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_TOTAL_HITS:
+            elif userChoices[batterStat_Count] == BATTER_TOTAL_RUNS:
                 
-                batter_total_hits = int(get_statData(connection, playerName,"batter_total_stats", "Hits"))
-               
-                statsToReturn.append(batter_total_hits)
+                try:
+
+                    # Retrieve Batter total runs from data base
+                    batter_total_runs = get_statData(connection, playerName,"batter_total_stats", "Runs")
                 
-            if userChoices[batterStat_Count] == BATTER_TOTAL_DOUBLES:
+                    # Append Batter total runs to statsToReturn
+                    statsToReturn.append(int(batter_total_runs))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_total_doubles = int(get_statData(connection, playerName,"batter_total_stats", "Doubles"))
-               
-                statsToReturn.append(batter_total_doubles)
+            elif userChoices[batterStat_Count] == BATTER_TOTAL_HITS:
                 
-            if userChoices[batterStat_Count] == BATTER_TOTAL_TRIPLES:
+                try:
+
+                    # Retrieve Batter total hits from data base
+                    batter_total_hits = get_statData(connection, playerName,"batter_total_stats", "Hits")
                 
-                batter_total_triples = int(get_statData(connection, playerName,"batter_total_stats", "Triples"))
-               
-                statsToReturn.append(batter_total_triples)
+                    # Append Batter total hits to statsToReturn
+                    statsToReturn.append(int(batter_total_hits))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_TOTAL_HOMERUNS:
+            elif userChoices[batterStat_Count] == BATTER_TOTAL_DOUBLES:
                 
-                batter_total_homeruns = int(get_statData(connection, playerName,"batter_total_stats", "Homeruns"))
-               
-                statsToReturn.append(batter_total_homeruns)
+                try:
+
+                    # Retrieve Batter total doubles from data base
+                    batter_total_doubles = get_statData(connection, playerName,"batter_total_stats", "Doubles")
                 
-            if userChoices[batterStat_Count] == BATTER_TOTAL_RBIS:
+                    # Append Batter total doubles to statsToReturn
+                    statsToReturn.append(int(batter_total_doubles))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_total_rbis = int(get_statData(connection, playerName,"batter_total_stats", "RBIs"))
-               
-                statsToReturn.append(batter_total_rbis)
+            elif userChoices[batterStat_Count] == BATTER_TOTAL_TRIPLES:
                 
-            if userChoices[batterStat_Count] == BATTER_TOTAL_WALKS:
+                try:
+
+                    # Retrieve Batter total triples from data base
+                    batter_total_triples = get_statData(connection, playerName,"batter_total_stats", "Triples")
                 
-                batter_total_walks = int(get_statData(connection, playerName,"batter_total_stats", "Walks"))
-               
-                statsToReturn.append(batter_total_walks)
+                    # Append Batter total triples to statsToReturn
+                    statsToReturn.append(int(batter_total_triples))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_TOTAL_STRIKEOUTS:
+            elif userChoices[batterStat_Count] == BATTER_TOTAL_HOMERUNS:
                 
-                batter_total_strikeouts = int(get_statData(connection, playerName,"batter_total_stats", "Strikeouts"))
-               
-                statsToReturn.append(batter_total_strikeouts)
+                try:
+
+                    # Retrieve Batter total homeruns from data base
+                    batter_total_homeruns = get_statData(connection, playerName,"batter_total_stats", "Homeruns")
                 
-            if userChoices[batterStat_Count] == BATTER_TOTAL_STOLENBASES:
+                    # Append Batter total homeruns to statsToReturn
+                    statsToReturn.append(int(batter_total_homeruns))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_total_stolenbases = int(get_statData(connection, playerName,"batter_total_stats", "StolenBases"))
-               
-                statsToReturn.append(batter_total_stolenbases)
+            elif userChoices[batterStat_Count] == BATTER_TOTAL_RBIS:
                 
-            if userChoices[batterStat_Count] == BATTER_TOTAL_BATTINGAVG:
+                try:
+
+                    # Retrieve Batter total RBIs from data base
+                    batter_total_rbis = get_statData(connection, playerName,"batter_total_stats", "RBIs")
                 
-                batter_total_battingAVG = float(get_statData(connection, playerName,"batter_total_stats", "Batting_AVG"))
-               
-                statsToReturn.append(batter_total_battingAVG)
+                    # Append Batter total RBIs to statsToReturn
+                    statsToReturn.append(int(batter_total_rbis))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_TOTAL_ONBASEPERCENT:
+            elif userChoices[batterStat_Count] == BATTER_TOTAL_WALKS:
                 
-                batter_total_onbasePercent = float(get_statData(connection, playerName,"batter_total_stats", "OnBase_Percent"))
-               
-                statsToReturn.append(batter_total_onbasePercent)
+                try:
+
+                    # Retrieve Batter total walks from data base
+                    batter_total_walks = get_statData(connection, playerName,"batter_total_stats", "Walks")
+                
+                    # Append Batter total walks to statsToReturn
+                    statsToReturn.append(int(batter_total_walks))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
+          
+            elif userChoices[batterStat_Count] == BATTER_TOTAL_STRIKEOUTS:
+                
+                try:
+
+                    # Retrieve Batter total strikeouts from data base
+                    batter_total_strikeouts = get_statData(connection, playerName,"batter_total_stats", "Strikeouts")
+                
+                    # Append Batter total strikeouts to statsToReturn
+                    statsToReturn.append(int(batter_total_strikeouts))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
+                
+            elif userChoices[batterStat_Count] == BATTER_TOTAL_STOLENBASES:
+                
+                try:
+
+                    # Retrieve Batter total stolen bases from data base
+                    batter_total_stolenbases = get_statData(connection, playerName,"batter_total_stats", "StolenBases")
+                
+                    # Append Batter total stolen bases to statsToReturn
+                    statsToReturn.append(int(batter_total_stolenbases))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
+                
+            elif userChoices[batterStat_Count] == BATTER_TOTAL_BATTINGAVG:
+                
+                try:
+
+                    # Retrieve Batter total batting average from data base
+                    batter_total_battingAVG = get_statData(connection, playerName,"batter_total_stats", "Batting_AVG")
+                
+                    # Append Batter total batting average to statsToReturn
+                    statsToReturn.append(float(batter_total_battingAVG))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(.111)
+                
+            elif userChoices[batterStat_Count] == BATTER_TOTAL_ONBASEPERCENT:
+                
+                try:
+
+                    # Retrieve Batter total on base percentage from data base
+                    batter_total_onbasePercent = get_statData(connection, playerName,"batter_total_stats", "OnBase_Percent")
+                
+                    # Append Batter total on base percentage to statsToReturn
+                    statsToReturn.append(float(batter_total_onbasePercent))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(.111)
             
             
             # Batter Home Stats
             #________________________________________________________________
-            if userChoices[batterStat_Count] == BATTER_HOME_GAMES:
+            elif userChoices[batterStat_Count] == BATTER_HOME_GAMES:
                 
-                batter_home_games = int(get_statData(connection, playerName,"batter_home_stats", "Games_Played"))
-               
-                statsToReturn.append(batter_home_games)
+                try:
+
+                    # Retrieve Batter games played at home from data base
+                    batter_home_games = get_statData(connection, playerName,"batter_home_stats", "Games_Played")
                 
-            if userChoices[batterStat_Count] == BATTER_HOME_ATBATS:
+                    # Append Batter games played at home to statsToReturn
+                    statsToReturn.append(int(batter_home_games))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_home_atbats = int(get_statData(connection, playerName,"batter_home_stats", "AtBats"))
-               
-                statsToReturn.append(batter_home_atbats)
+            elif userChoices[batterStat_Count] == BATTER_HOME_ATBATS:
                 
-            if userChoices[batterStat_Count] == BATTER_HOME_RUNS:
+                try:
+
+                    # Retrieve Batter at bats at home from data base
+                    batter_home_atbats = get_statData(connection, playerName,"batter_home_stats", "AtBats")
                 
-                batter_home_runs = int(get_statData(connection, playerName,"batter_home_stats", "Runs"))
-               
-                statsToReturn.append(batter_home_runs)
+                    # Append Batter at bats at home to statsToReturn
+                    statsToReturn.append(int(batter_home_atbats))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_HOME_HITS:
+            elif userChoices[batterStat_Count] == BATTER_HOME_RUNS:
                 
-                batter_home_hits = int(get_statData(connection, playerName,"batter_home_stats", "Hits"))
-               
-                statsToReturn.append(batter_home_hits)
+                try:
+
+                    # Retrieve Batter runs at home from data base
+                    batter_home_runs = get_statData(connection, playerName,"batter_home_stats", "Runs")
                 
-            if userChoices[batterStat_Count] == BATTER_HOME_DOUBLES:
+                    # Append Batter runs at home to statsToReturn
+                    statsToReturn.append(int(batter_home_runs))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_home_doubles = int(get_statData(connection, playerName,"batter_home_stats", "Doubles"))
-               
-                statsToReturn.append(batter_home_doubles)
+            elif userChoices[batterStat_Count] == BATTER_HOME_HITS:
                 
-            if userChoices[batterStat_Count] == BATTER_HOME_TRIPLES:
+                try:
+
+                    # Retrieve Batter hits at home from data base
+                    batter_home_hits = get_statData(connection, playerName,"batter_home_stats", "Hits")
                 
-                batter_home_triples = int(get_statData(connection, playerName,"batter_home_stats", "Triples"))
-               
-                statsToReturn.append(batter_home_triples)
+                    # Append Batter hits at home to statsToReturn
+                    statsToReturn.append(int(batter_home_hits))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_HOME_HOMERUNS:
+            elif userChoices[batterStat_Count] == BATTER_HOME_DOUBLES:
                 
-                batter_home_homeruns = int(get_statData(connection, playerName,"batter_home_stats", "Homeruns"))
-               
-                statsToReturn.append(batter_home_homeruns)
+                try:
+
+                    # Retrieve Batter doubles at home from data base
+                    batter_home_doubles = get_statData(connection, playerName,"batter_home_stats", "Doubles")
                 
-            if userChoices[batterStat_Count] == BATTER_HOME_RBIS:
+                    # Append Batter doubles at home to statsToReturn
+                    statsToReturn.append(int(batter_home_doubles))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_home_rbis = int(get_statData(connection, playerName,"batter_home_stats", "RBIs"))
-               
-                statsToReturn.append(batter_home_rbis)
+            elif userChoices[batterStat_Count] == BATTER_HOME_TRIPLES:
                 
-            if userChoices[batterStat_Count] == BATTER_HOME_WALKS:
+                try:
+
+                    # Retrieve Batter triples at home from data base
+                    batter_home_triples = get_statData(connection, playerName,"batter_home_stats", "Triples")
                 
-                batter_home_walks = int(get_statData(connection, playerName,"batter_home_stats", "Walks"))
-               
-                statsToReturn.append(batter_home_walks)
+                    # Append Batter triples at home to statsToReturn
+                    statsToReturn.append(int(batter_home_triples))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_HOME_STRIKEOUTS:
+            elif userChoices[batterStat_Count] == BATTER_HOME_HOMERUNS:
                 
-                batter_home_strikeouts = int(get_statData(connection, playerName,"batter_home_stats", "Strikeouts"))
-               
-                statsToReturn.append(batter_home_strikeouts)
+                try:
+
+                    # Retrieve Batter homeruns at home from data base
+                    batter_home_homeruns = get_statData(connection, playerName,"batter_home_stats", "Homeruns")
                 
-            if userChoices[batterStat_Count] == BATTER_HOME_STOLENBASES:
+                    # Append Batter homeruns at home to statsToReturn
+                    statsToReturn.append(int(batter_home_homeruns))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_home_stolenbases = int(get_statData(connection, playerName,"batter_home_stats", "StolenBases"))
-               
-                statsToReturn.append(batter_home_stolenbases)
+            elif userChoices[batterStat_Count] == BATTER_HOME_RBIS:
                 
-            if userChoices[batterStat_Count] == BATTER_HOME_BATTINGAVG:
+                try:
+
+                    # Retrieve Batter RBIs at home from data base
+                    batter_home_rbis = get_statData(connection, playerName,"batter_home_stats", "RBIs")
                 
-                batter_home_battingAVG = float(get_statData(connection, playerName,"batter_home_stats", "Batting_AVG"))
-               
-                statsToReturn.append(batter_home_battingAVG)
+                    # Append Batter RBIs at home to statsToReturn
+                    statsToReturn.append(int(batter_home_rbis))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_HOME_ONBASEPERCENT:
+            elif userChoices[batterStat_Count] == BATTER_HOME_WALKS:
                 
-                batter_home_onbasePercent = float(get_statData(connection, playerName,"batter_home_stats", "OnBase_Percent"))
-               
-                statsToReturn.append(batter_home_onbasePercent)
+                try:
+
+                    # Retrieve Batter walks at home from data base
+                    batter_home_walks = get_statData(connection, playerName,"batter_home_stats", "Walks")
+                
+                    # Append Batter walks at home to statsToReturn
+                    statsToReturn.append(int(batter_home_walks))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
+                
+            elif userChoices[batterStat_Count] == BATTER_HOME_STRIKEOUTS:
+                
+                try:
+
+                    # Retrieve Batter strikeouts at home from data base
+                    batter_home_strikeouts = get_statData(connection, playerName,"batter_home_stats", "Strikeouts")
+                
+                    # Append Batter strikeouts at home to statsToReturn
+                    statsToReturn.append(int(batter_home_strikeouts))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
+                
+            elif userChoices[batterStat_Count] == BATTER_HOME_STOLENBASES:
+                
+                try:
+
+                    # Retrieve Batter stolen bases at home from data base
+                    batter_home_stolenbases = int(get_statData(connection, playerName,"batter_home_stats", "StolenBases"))
+                
+                    # Append Batter stolenbases at home to statsToReturn
+                    statsToReturn.append(batter_home_stolenbases)
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
+                
+            elif userChoices[batterStat_Count] == BATTER_HOME_BATTINGAVG:
+                
+                try:
+
+                    # Retrieve Batter batting average at home from data base
+                    batter_home_battingAVG = get_statData(connection, playerName,"batter_home_stats", "Batting_AVG")
+                
+                    # Append Batter batting average at home to statsToReturn
+                    statsToReturn.append(float(batter_home_battingAVG))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
+                
+            elif userChoices[batterStat_Count] == BATTER_HOME_ONBASEPERCENT:
+                
+                try:
+
+                    # Retrieve Batter on base percentage at home from data base
+                    batter_home_onbasePercent = get_statData(connection, playerName,"batter_home_stats", "OnBase_Percent")
+                
+                    # Append Batter on base percentage at home to statsToReturn
+                    statsToReturn.append(float(batter_home_onbasePercent))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
             
             # Batter Away Stats
             #________________________________________________________________
-            if userChoices[batterStat_Count] == BATTER_AWAY_GAMES:
+            elif userChoices[batterStat_Count] == BATTER_AWAY_GAMES:
                 
-                batter_away_games = int(get_statData(connection, playerName,"batter_away_stats", "Games_Played"))
-               
-                statsToReturn.append(batter_away_games)
+                try:
+
+                    # Retrieve Batter games played away from data base
+                    batter_away_games = get_statData(connection, playerName,"batter_away_stats", "Games_Played")
                 
-            if userChoices[batterStat_Count] == BATTER_AWAY_ATBATS:
+                    # Append Batter games played away to statsToReturn
+                    statsToReturn.append(int(batter_away_games))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_away_atbats = int(get_statData(connection, playerName,"batter_away_stats", "AtBats"))
-               
-                statsToReturn.append(batter_away_atbats)
+            elif userChoices[batterStat_Count] == BATTER_AWAY_ATBATS:
                 
-            if userChoices[batterStat_Count] == BATTER_AWAY_RUNS:
+                try:
+
+                    # Retrieve Batter at bats away from data base
+                    batter_away_atbats = get_statData(connection, playerName,"batter_away_stats", "AtBats")
                 
-                batter_away_runs = int(get_statData(connection, playerName,"batter_away_stats", "Runs"))
-               
-                statsToReturn.append(batter_away_runs)
+                    # Append Batter at bats away to statsToReturn
+                    statsToReturn.append(int(batter_away_atbats))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_AWAY_HITS:
+            elif userChoices[batterStat_Count] == BATTER_AWAY_RUNS:
                 
-                batter_away_hits = int(get_statData(connection, playerName,"batter_away_stats", "Hits"))
-               
-                statsToReturn.append(batter_away_hits)
+                try:
+
+                    # Retrieve Batter runs away from data base
+                    batter_away_runs = get_statData(connection, playerName,"batter_away_stats", "Runs")
                 
-            if userChoices[batterStat_Count] == BATTER_AWAY_DOUBLES:
+                    # Append Batter runs away to statsToReturn
+                    statsToReturn.append(int(batter_away_runs))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_away_doubles = int(get_statData(connection, playerName,"batter_away_stats", "Doubles"))
-               
-                statsToReturn.append(batter_away_doubles)
+            elif userChoices[batterStat_Count] == BATTER_AWAY_HITS:
                 
-            if userChoices[batterStat_Count] == BATTER_AWAY_TRIPLES:
+                try:
+
+                    # Retrieve Batter hits away from data base
+                    batter_away_hits = get_statData(connection, playerName,"batter_away_stats", "Hits")
                 
-                batter_away_triples = int(get_statData(connection, playerName,"batter_away_stats", "Triples"))
-               
-                statsToReturn.append(batter_away_triples)
+                    # Append Batter hits away to statsToReturn
+                    statsToReturn.append(int(batter_away_hits))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_AWAY_HOMERUNS:
+            elif userChoices[batterStat_Count] == BATTER_AWAY_DOUBLES:
                 
-                batter_away_homeruns = int(get_statData(connection, playerName,"batter_away_stats", "Homeruns"))
-               
-                statsToReturn.append(batter_away_homeruns)
+                try:
+
+                    # Retrieve Batter doubles away from data base
+                    batter_away_doubles = get_statData(connection, playerName,"batter_away_stats", "Doubles")
                 
-            if userChoices[batterStat_Count] == BATTER_AWAY_RBIS:
+                    # Append Batter doubles away to statsToReturn
+                    statsToReturn.append(int(batter_away_doubles))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_away_rbis = int(get_statData(connection, playerName,"batter_away_stats", "RBIs"))
-               
-                statsToReturn.append(batter_away_rbis)
+            elif userChoices[batterStat_Count] == BATTER_AWAY_TRIPLES:
                 
-            if userChoices[batterStat_Count] == BATTER_AWAY_WALKS:
+                try:
+
+                    # Retrieve Batter triples away from data base
+                    batter_away_triples = get_statData(connection, playerName,"batter_away_stats", "Triples")
                 
-                batter_away_walks = int(get_statData(connection, playerName,"batter_away_stats", "Walks"))
-               
-                statsToReturn.append(batter_away_walks)
+                    # Append Batter triples away to statsToReturn
+                    statsToReturn.append(int(batter_away_triples))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_AWAY_STRIKEOUTS:
+            elif userChoices[batterStat_Count] == BATTER_AWAY_HOMERUNS:
                 
-                batter_away_strikeouts = int(get_statData(connection, playerName,"batter_away_stats", "Strikeouts"))
-               
-                statsToReturn.append(batter_away_strikeouts)
+                try:
+
+                    # Retrieve Batter homeruns away from data base
+                    batter_away_homeruns = get_statData(connection, playerName,"batter_away_stats", "Homeruns")
                 
-            if userChoices[batterStat_Count] == BATTER_AWAY_STOLENBASES:
+                    # Append Batter homeruns away to statsToReturn
+                    statsToReturn.append(int(batter_away_homeruns))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_away_stolenbases = int(get_statData(connection, playerName,"batter_away_stats", "StolenBases"))
-               
-                statsToReturn.append(batter_away_stolenbases)
+            elif userChoices[batterStat_Count] == BATTER_AWAY_RBIS:
                 
-            if userChoices[batterStat_Count] == BATTER_AWAY_BATTINGAVG:
+                try:
+
+                    # Retrieve Batter RBIs away from data base
+                    batter_away_rbis = get_statData(connection, playerName,"batter_away_stats", "RBIs")
                 
-                batter_away_battingAVG = float(get_statData(connection, playerName,"batter_away_stats", "Batting_AVG"))
-               
-                statsToReturn.append(batter_away_battingAVG)
+                    # Append Batter RBIs away to statsToReturn
+                    statsToReturn.append(int(batter_away_rbis))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_AWAY_ONBASEPERCENT:
+            elif userChoices[batterStat_Count] == BATTER_AWAY_WALKS:
                 
-                batter_away_onbasePercent = float(get_statData(connection, playerName,"batter_away_stats", "OnBase_Percent"))
-               
-                statsToReturn.append(batter_away_onbasePercent)
+                try:
+
+                    # Retrieve Batter walks away from data base
+                    batter_away_walks = get_statData(connection, playerName,"batter_away_stats", "Walks")
+                
+                    # Append Batter walks away to statsToReturn
+                    statsToReturn.append(int(batter_away_walks))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
+                
+            elif userChoices[batterStat_Count] == BATTER_AWAY_STRIKEOUTS:
+                
+                try:
+
+                    # Retrieve Batter strikeouts away from data base
+                    batter_away_strikeouts = get_statData(connection, playerName,"batter_away_stats", "Strikeouts")
+                
+                    # Append Batter strikeouts away to statsToReturn
+                    statsToReturn.append(int(batter_away_strikeouts))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
+                
+            elif userChoices[batterStat_Count] == BATTER_AWAY_STOLENBASES:
+                
+                try:
+
+                    # Retrieve Batter stolenbases away from data base
+                    batter_away_stolenbases = get_statData(connection, playerName,"batter_away_stats", "StolenBases")
+                
+                    # Append Batter stolenbases away to statsToReturn
+                    statsToReturn.append(int(batter_away_stolenbases))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
+                
+            elif userChoices[batterStat_Count] == BATTER_AWAY_BATTINGAVG:
+                
+                try:
+
+                    # Retrieve Batter batting average away from data base
+                    batter_away_battingAVG = get_statData(connection, playerName,"batter_away_stats", "Batting_AVG")
+                
+                    # Append Batter batting average away to statsToReturn
+                    statsToReturn.append(float(batter_away_battingAVG))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(.111)
+                
+            elif userChoices[batterStat_Count] == BATTER_AWAY_ONBASEPERCENT:
+                
+                try:
+
+                    # Retrieve Batter on base percentage away from data base
+                    batter_away_onbasePercent = get_statData(connection, playerName,"batter_away_stats", "OnBase_Percent")
+                
+                    # Append Batter on base percentage away to statsToReturn
+                    statsToReturn.append(float(batter_away_onbasePercent))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(.111)
             
             # Batter Day Stats
             #________________________________________________________________
-            if userChoices[batterStat_Count] == BATTER_DAY_GAMES:
+            elif userChoices[batterStat_Count] == BATTER_DAY_GAMES:
                 
-                batter_day_games = int(get_statData(connection, playerName,"batter_day_stats", "Games_Played"))
-               
-                statsToReturn.append(batter_day_games)
+                try:
+
+                    # Retrieve Batter games played during the day from data base
+                    batter_day_games = get_statData(connection, playerName,"batter_day_stats", "Games_Played")
                 
-            if userChoices[batterStat_Count] == BATTER_DAY_ATBATS:
+                    # Append Batter games played during the day to statsToReturn
+                    statsToReturn.append(int(batter_day_games))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_day_atbats = int(get_statData(connection, playerName,"batter_day_stats", "AtBats"))
-               
-                statsToReturn.append(batter_day_atbats)
+            elif userChoices[batterStat_Count] == BATTER_DAY_ATBATS:
                 
-            if userChoices[batterStat_Count] == BATTER_DAY_RUNS:
+                try:
+
+                    # Retrieve Batter at bats during the day from data base
+                    batter_day_atbats = get_statData(connection, playerName,"batter_day_stats", "AtBats")
                 
-                batter_day_runs = int(get_statData(connection, playerName,"batter_day_stats", "Runs"))
-               
-                statsToReturn.append(batter_day_runs)
+                    # Append Batter at bats during the day to statsToReturn
+                    statsToReturn.append(int(batter_day_atbats))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_DAY_HITS:
+            elif userChoices[batterStat_Count] == BATTER_DAY_RUNS:
                 
-                batter_day_hits = int(get_statData(connection, playerName,"batter_day_stats", "Hits"))
-               
-                statsToReturn.append(batter_day_hits)
+                try:
+
+                    # Retrieve Batter runs during the day from data base
+                    batter_day_runs = get_statData(connection, playerName,"batter_day_stats", "Runs")
                 
-            if userChoices[batterStat_Count] == BATTER_DAY_DOUBLES:
+                    # Append Batter runs during the day to statsToReturn
+                    statsToReturn.append(int(batter_day_runs))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_day_doubles = int(get_statData(connection, playerName,"batter_day_stats", "Doubles"))
-               
-                statsToReturn.append(batter_day_doubles)
+            elif userChoices[batterStat_Count] == BATTER_DAY_HITS:
                 
-            if userChoices[batterStat_Count] == BATTER_DAY_TRIPLES:
+                try:
+
+                    # Retrieve Batter hits during the day from data base
+                    batter_day_hits = get_statData(connection, playerName,"batter_day_stats", "Hits")
                 
-                batter_day_triples = int(get_statData(connection, playerName,"batter_day_stats", "Triples"))
-               
-                statsToReturn.append(batter_day_triples)
+                    # Append Batter hits during the day to statsToReturn
+                    statsToReturn.append(int(batter_day_hits))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_DAY_HOMERUNS:
+            elif userChoices[batterStat_Count] == BATTER_DAY_DOUBLES:
                 
-                batter_day_homeruns = int(get_statData(connection, playerName,"batter_day_stats", "Homeruns"))
-               
-                statsToReturn.append(batter_day_homeruns)
+                try:
+
+                    # Retrieve Batter doubles during the day from data base
+                    batter_day_doubles = get_statData(connection, playerName,"batter_day_stats", "Doubles")
                 
-            if userChoices[batterStat_Count] == BATTER_DAY_RBIS:
+                    # Append Batter doubles during the day to statsToReturn
+                    statsToReturn.append(int(batter_day_doubles))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_day_rbis = int(get_statData(connection, playerName,"batter_day_stats", "RBIs"))
-               
-                statsToReturn.append(batter_day_rbis)
+            elif userChoices[batterStat_Count] == BATTER_DAY_TRIPLES:
                 
-            if userChoices[batterStat_Count] == BATTER_DAY_WALKS:
+                try:
+
+                    # Retrieve Batter triples during the day from data base
+                    batter_day_triples = get_statData(connection, playerName,"batter_day_stats", "Triples")
                 
-                batter_day_walks = int(get_statData(connection, playerName,"batter_day_stats", "Walks"))
-               
-                statsToReturn.append(batter_day_walks)
+                    # Append Batter triples during the day to statsToReturn
+                    statsToReturn.append(int(batter_day_triples))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_DAY_STRIKEOUTS:
+            elif userChoices[batterStat_Count] == BATTER_DAY_HOMERUNS:
                 
-                batter_day_strikeouts = int(get_statData(connection, playerName,"batter_day_stats", "Strikeouts"))
-               
-                statsToReturn.append(batter_day_strikeouts)
+                try:
+
+                    # Retrieve Batter homeruns during the day from data base
+                    batter_day_homeruns = get_statData(connection, playerName,"batter_day_stats", "Homeruns")
                 
-            if userChoices[batterStat_Count] == BATTER_DAY_STOLENBASES:
+                    # Append Batter homeruns during the day to statsToReturn
+                    statsToReturn.append(int(batter_day_homeruns))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-                batter_day_stolenbases = int(get_statData(connection, playerName,"batter_day_stats", "StolenBases"))
-               
-                statsToReturn.append(batter_day_stolenbases)
+            elif userChoices[batterStat_Count] == BATTER_DAY_RBIS:
                 
-            if userChoices[batterStat_Count] == BATTER_DAY_BATTINGAVG:
+                try:
+
+                    # Retrieve Batter RBIs during the day from data base
+                    batter_day_rbis = get_statData(connection, playerName,"batter_day_stats", "RBIs")
                 
-                batter_day_battingAVG = float(get_statData(connection, playerName,"batter_day_stats", "Batting_AVG"))
-               
-                statsToReturn.append(batter_day_battingAVG)
+                    # Append Batter RBIs during the day to statsToReturn
+                    statsToReturn.append(int(batter_day_rbis))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
                 
-            if userChoices[batterStat_Count] == BATTER_DAY_ONBASEPERCENT:
+            elif userChoices[batterStat_Count] == BATTER_DAY_WALKS:
                 
-                batter_day_onbasePercent = float(get_statData(connection, playerName,"batter_day_stats", "OnBase_Percent"))
-               
-                statsToReturn.append(batter_day_onbasePercent)
+                try:
+
+                    # Retrieve Batter walks during the day from data base
+                    batter_day_walks = get_statData(connection, playerName,"batter_day_stats", "Walks")
+                
+                    # Append Batter walks during the day to statsToReturn
+                    statsToReturn.append(int(batter_day_walks))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
+                
+            elif userChoices[batterStat_Count] == BATTER_DAY_STRIKEOUTS:
+                
+                try:
+
+                    # Retrieve Batter strikeouts during the day from data base
+                    batter_day_strikeouts = get_statData(connection, playerName,"batter_day_stats", "Strikeouts")
+                
+                    # Append Batter strikeouts during the day to statsToReturn
+                    statsToReturn.append(int(batter_day_strikeouts))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
+                
+            elif userChoices[batterStat_Count] == BATTER_DAY_STOLENBASES:
+                
+                try:
+
+                    # Retrieve Batter stolenbases during the day from data base
+                    batter_day_stolenbases = get_statData(connection, playerName,"batter_day_stats", "StolenBases")
+                
+                    # Append Batter stolenbases during the day to statsToReturn
+                    statsToReturn.append(int(batter_day_stolenbases))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(1)
+                
+            elif userChoices[batterStat_Count] == BATTER_DAY_BATTINGAVG:
+                
+                try:
+
+                    # Retrieve Batter batting average during the day from data base
+                    batter_day_battingAVG = get_statData(connection, playerName,"batter_day_stats", "Batting_AVG")
+                
+                    # Append Batter batting average during the day to statsToReturn
+                    statsToReturn.append(float(batter_day_battingAVG))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(.111)
+                
+            elif userChoices[batterStat_Count] == BATTER_DAY_ONBASEPERCENT:
+                
+                try:
+
+                    # Retrieve Batter on base percentage during the day from data base
+                    batter_day_onbasePercent = get_statData(connection, playerName,"batter_day_stats", "OnBase_Percent")
+                
+                    # Append Batter on base percentage during the day to statsToReturn
+                    statsToReturn.append(float(batter_day_onbasePercent))
+
+                except TypeError as e:
+                    
+                    statsToReturn.append(.111)
                 
             # Batter Night Stats
             #________________________________________________________________
-            if userChoices[batterStat_Count] == BATTER_NIGHT_GAMES:
+            elif userChoices[batterStat_Count] == BATTER_NIGHT_GAMES:
                 
                 batter_night_games = int(get_statData(connection, playerName,"batter_night_stats", "Games_Played"))
                
                 statsToReturn.append(batter_night_games)
                 
-            if userChoices[batterStat_Count] == BATTER_NIGHT_ATBATS:
+            elif userChoices[batterStat_Count] == BATTER_NIGHT_ATBATS:
                 
                 batter_night_atbats = int(get_statData(connection, playerName,"batter_night_stats", "AtBats"))
                
                 statsToReturn.append(batter_night_atbats)
                 
-            if userChoices[batterStat_Count] == BATTER_NIGHT_RUNS:
+            elif userChoices[batterStat_Count] == BATTER_NIGHT_RUNS:
                 
                 batter_night_runs = int(get_statData(connection, playerName,"batter_night_stats", "Runs"))
                
                 statsToReturn.append(batter_night_runs)
                 
-            if userChoices[batterStat_Count] == BATTER_NIGHT_HITS:
+            elif userChoices[batterStat_Count] == BATTER_NIGHT_HITS:
                 
                 batter_night_hits = int(get_statData(connection, playerName,"batter_night_stats", "Hits"))
                
                 statsToReturn.append(batter_night_hits)
                 
-            if userChoices[batterStat_Count] == BATTER_NIGHT_DOUBLES:
+            elif userChoices[batterStat_Count] == BATTER_NIGHT_DOUBLES:
                 
                 batter_night_doubles = int(get_statData(connection, playerName,"batter_night_stats", "Doubles"))
                
                 statsToReturn.append(batter_night_doubles)
                 
-            if userChoices[batterStat_Count] == BATTER_NIGHT_TRIPLES:
+            elif userChoices[batterStat_Count] == BATTER_NIGHT_TRIPLES:
                 
                 batter_night_triples = int(get_statData(connection, playerName,"batter_night_stats", "Triples"))
                
                 statsToReturn.append(batter_night_triples)
                 
-            if userChoices[batterStat_Count] == BATTER_NIGHT_HOMERUNS:
+            elif userChoices[batterStat_Count] == BATTER_NIGHT_HOMERUNS:
                 
                 batter_night_homeruns = int(get_statData(connection, playerName,"batter_night_stats", "Homeruns"))
                
                 statsToReturn.append(batter_night_homeruns)
                 
-            if userChoices[batterStat_Count] == BATTER_NIGHT_RBIS:
+            elif userChoices[batterStat_Count] == BATTER_NIGHT_RBIS:
                 
                 batter_night_rbis = int(get_statData(connection, playerName,"batter_night_stats", "RBIs"))
                
                 statsToReturn.append(batter_night_rbis)
                 
-            if userChoices[batterStat_Count] == BATTER_NIGHT_WALKS:
+            elif userChoices[batterStat_Count] == BATTER_NIGHT_WALKS:
                 
                 batter_night_walks = int(get_statData(connection, playerName,"batter_night_stats", "Walks"))
                
                 statsToReturn.append(batter_night_walks)
                 
-            if userChoices[batterStat_Count] == BATTER_NIGHT_STRIKEOUTS:
+            elif userChoices[batterStat_Count] == BATTER_NIGHT_STRIKEOUTS:
                 
                 batter_night_strikeouts = int(get_statData(connection, playerName,"batter_night_stats", "Strikeouts"))
                
                 statsToReturn.append(batter_night_strikeouts)
                 
-            if userChoices[batterStat_Count] == BATTER_NIGHT_STOLENBASES:
+            elif userChoices[batterStat_Count] == BATTER_NIGHT_STOLENBASES:
                 
                 batter_night_stolenbases = int(get_statData(connection, playerName,"batter_night_stats", "StolenBases"))
                
                 statsToReturn.append(batter_night_stolenbases)
                 
-            if userChoices[batterStat_Count] == BATTER_NIGHT_BATTINGAVG:
+            elif userChoices[batterStat_Count] == BATTER_NIGHT_BATTINGAVG:
                 
                 batter_night_battingAVG = float(get_statData(connection, playerName,"batter_night_stats", "Batting_AVG"))
                
                 statsToReturn.append(batter_night_battingAVG)
                 
-            if userChoices[batterStat_Count] == BATTER_NIGHT_ONBASEPERCENT:
+            elif userChoices[batterStat_Count] == BATTER_NIGHT_ONBASEPERCENT:
                 
                 batter_night_onbasePercent = float(get_statData(connection, playerName,"batter_night_stats", "OnBase_Percent"))
                
@@ -2775,67 +3287,67 @@ def getMLBStat(*args):
             # Batter Vs Left Stats
             #________________________________________________________________
             
-            if userChoices[batterStat_Count] == BATTER_LEFT_GAMES:
+            elif userChoices[batterStat_Count] == BATTER_LEFT_GAMES:
                 
                 batter_left_games = int(get_statData(connection, playerName,"batter_vsleft_stats", "Games_Played"))
                
                 statsToReturn.append(batter_left_games)
                 
-            if userChoices[batterStat_Count] == BATTER_LEFT_ATBATS:
+            elif userChoices[batterStat_Count] == BATTER_LEFT_ATBATS:
                 
                 batter_left_atbats = int(get_statData(connection, playerName,"batter_vsleft_stats", "AtBats"))
                
                 statsToReturn.append(batter_left_atbats)
                 
-            if userChoices[batterStat_Count] == BATTER_LEFT_HITS:
+            elif userChoices[batterStat_Count] == BATTER_LEFT_HITS:
                 
                 batter_left_hits = int(get_statData(connection, playerName,"batter_vsleft_stats", "Hits"))
                
                 statsToReturn.append(batter_left_hits)
                 
-            if userChoices[batterStat_Count] == BATTER_LEFT_DOUBLES:
+            elif userChoices[batterStat_Count] == BATTER_LEFT_DOUBLES:
                 
                 batter_left_doubles = int(get_statData(connection, playerName,"batter_vsleft_stats", "Doubles"))
                
                 statsToReturn.append(batter_left_doubles)
                 
-            if userChoices[batterStat_Count] == BATTER_LEFT_TRIPLES:
+            elif userChoices[batterStat_Count] == BATTER_LEFT_TRIPLES:
                 
                 batter_left_triples = int(get_statData(connection, playerName,"batter_vsleft_stats", "Triples"))
                
                 statsToReturn.append(batter_left_triples)
                 
-            if userChoices[batterStat_Count] == BATTER_LEFT_HOMERUNS:
+            elif userChoices[batterStat_Count] == BATTER_LEFT_HOMERUNS:
                 
                 batter_left_homeruns = int(get_statData(connection, playerName,"batter_vsleft_stats", "HomeRuns"))
                
                 statsToReturn.append(batter_left_homeruns)
                 
-            if userChoices[batterStat_Count] == BATTER_LEFT_RBIS:
+            elif userChoices[batterStat_Count] == BATTER_LEFT_RBIS:
                 
                 batter_left_rbis = int(get_statData(connection, playerName,"batter_vsleft_stats", "RBIs"))
                
                 statsToReturn.append(batter_left_rbis)
                 
-            if userChoices[batterStat_Count] == BATTER_LEFT_WALKS:
+            elif userChoices[batterStat_Count] == BATTER_LEFT_WALKS:
                 
                 batter_left_walks = int(get_statData(connection, playerName,"batter_vsleft_stats", "Walks"))
                
                 statsToReturn.append(batter_left_walks)
                 
-            if userChoices[batterStat_Count] == BATTER_LEFT_STRIKEOUTS:
+            elif userChoices[batterStat_Count] == BATTER_LEFT_STRIKEOUTS:
                 
                 batter_left_strikeouts = int(get_statData(connection, playerName,"batter_vsleft_stats", "Strikeouts"))
                
                 statsToReturn.append(batter_left_strikeouts)
                 
-            if userChoices[batterStat_Count] == BATTER_LEFT_BATTINGAVG:
+            elif userChoices[batterStat_Count] == BATTER_LEFT_BATTINGAVG:
                 
                 batter_left_battingAvg = float(get_statData(connection, playerName,"batter_vsleft_stats", "Batting_AVG"))
                
                 statsToReturn.append(batter_left_battingAvg)
                 
-            if userChoices[batterStat_Count] == BATTER_LEFT_ONBASEPERCENT:
+            elif userChoices[batterStat_Count] == BATTER_LEFT_ONBASEPERCENT:
                 
                 batter_left_onbasePercent = float(get_statData(connection, playerName,"batter_vsleft_stats", "OnBase_Percent"))
                
@@ -2844,67 +3356,67 @@ def getMLBStat(*args):
             # Batter Vs Right Stats
             #________________________________________________________________
             
-            if userChoices[batterStat_Count] == BATTER_RIGHT_GAMES:
+            elif userChoices[batterStat_Count] == BATTER_RIGHT_GAMES:
                 
                 batter_right_games = int(get_statData(connection, playerName,"batter_vsright_stats", "Games_Played"))
                
                 statsToReturn.append(batter_right_games)
                 
-            if userChoices[batterStat_Count] == BATTER_RIGHT_ATBATS:
+            elif userChoices[batterStat_Count] == BATTER_RIGHT_ATBATS:
                 
                 batter_right_atbats = int(get_statData(connection, playerName,"batter_vsright_stats", "AtBats"))
                
                 statsToReturn.append(batter_right_atbats)
                 
-            if userChoices[batterStat_Count] == BATTER_RIGHT_HITS:
+            elif userChoices[batterStat_Count] == BATTER_RIGHT_HITS:
                 
                 batter_right_hits = int(get_statData(connection, playerName,"batter_vsright_stats", "Hits"))
                
                 statsToReturn.append(batter_right_hits)
                 
-            if userChoices[batterStat_Count] == BATTER_RIGHT_DOUBLES:
+            elif userChoices[batterStat_Count] == BATTER_RIGHT_DOUBLES:
                 
                 batter_right_doubles = int(get_statData(connection, playerName,"batter_vsright_stats", "Doubles"))
                
                 statsToReturn.append(batter_right_doubles)
                 
-            if userChoices[batterStat_Count] == BATTER_RIGHT_TRIPLES:
+            elif userChoices[batterStat_Count] == BATTER_RIGHT_TRIPLES:
                 
                 batter_right_triples = int(get_statData(connection, playerName,"batter_vsright_stats", "Triples"))
                
                 statsToReturn.append(batter_right_triples)
                 
-            if userChoices[batterStat_Count] == BATTER_RIGHT_HOMERUNS:
+            elif userChoices[batterStat_Count] == BATTER_RIGHT_HOMERUNS:
                 
                 batter_right_homeruns = int(get_statData(connection, playerName,"batter_vsright_stats", "HomeRuns"))
                
                 statsToReturn.append(batter_right_homeruns)
                 
-            if userChoices[batterStat_Count] == BATTER_RIGHT_RBIS:
+            elif userChoices[batterStat_Count] == BATTER_RIGHT_RBIS:
                 
                 batter_right_rbis = int(get_statData(connection, playerName,"batter_vsright_stats", "RBIs"))
                
                 statsToReturn.append(batter_right_rbis)
                 
-            if userChoices[batterStat_Count] == BATTER_RIGHT_WALKS:
+            elif userChoices[batterStat_Count] == BATTER_RIGHT_WALKS:
                 
                 batter_right_walks = int(get_statData(connection, playerName,"batter_vsright_stats", "Walks"))
                
                 statsToReturn.append(batter_right_walks)
                 
-            if userChoices[batterStat_Count] == BATTER_RIGHT_STRIKEOUTS:
+            elif userChoices[batterStat_Count] == BATTER_RIGHT_STRIKEOUTS:
                 
                 batter_right_strikeouts = int(get_statData(connection, playerName,"batter_vsright_stats", "Strikeouts"))
                
                 statsToReturn.append(batter_right_strikeouts)
                 
-            if userChoices[batterStat_Count] == BATTER_RIGHT_BATTINGAVG:
+            elif userChoices[batterStat_Count] == BATTER_RIGHT_BATTINGAVG:
                 
                 batter_right_battingAvg = float(get_statData(connection, playerName,"batter_vsright_stats", "Batting_AVG"))
                
                 statsToReturn.append(batter_right_battingAvg)
                 
-            if userChoices[batterStat_Count] == BATTER_RIGHT_ONBASEPERCENT:
+            elif userChoices[batterStat_Count] == BATTER_RIGHT_ONBASEPERCENT:
                 
                 batter_right_onbasePercent = float(get_statData(connection, playerName,"batter_vsright_stats", "OnBase_Percent"))
                
