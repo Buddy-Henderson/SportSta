@@ -1,16 +1,17 @@
-import subprocess
 import sys
 import os
-
 import zipfile
 
 def install_dependencies():
     try:
         # Install pip if not already installed
-        subprocess.run([sys.executable, '-m', 'ensurepip', '--default-pip'])
+        ensure_pip()
         
         # Install dependencies from requirements.txt
-        subprocess.run([sys.executable, '-m', 'pip', 'install', '-r', 'requirements.txt'])
+        install_requirements("requirements.txt")
+        
+        # Install requests
+        install_package("requests")
         
         print("Dependencies installed successfully!")
         
@@ -18,15 +19,41 @@ def install_dependencies():
         download_files_from_github()
     except Exception as e:
         print(f"An error occurred: {e}")
+
+def ensure_pip():
+    try:
+        import pip
+    except ImportError:
+        print("Installing pip...")
+        import ensurepip
+        ensurepip.bootstrap()
+        print("Pip installed successfully!")
+
+def install_requirements(requirements_file):
+    try:
+        import pip
+        with open(requirements_file, "r") as f:
+            requirements = f.readlines()
         
+        for requirement in requirements:
+            pip.main(['install', requirement.strip()])
+    except Exception as e:
+        print(f"An error occurred while installing requirements: {e}")
+
+def install_package(package_name):
+    try:
+        import pip
+        pip.main(['install', package_name])
+    except Exception as e:
+        print(f"An error occurred while installing {package_name}: {e}")
+
 def download_files_from_github():
     try:
-        # Import requests here after ensuring it's installed
         import requests
         
         # Define GitHub repository URL and folder path
-        github_url = "https://github.com/yourusername/yourrepository/archive/main.zip"
-        folder_path = os.path.join(os.path.expanduser("~"), "Desktop", "MyProjectFolder")
+        github_url = "https://github.com/Buddy-Henderson/SportSta/archive/main.zip"
+        folder_path = os.path.join(os.path.expanduser("~"), "Desktop", "SportSta")
         
         # Create folder on desktop if it doesn't exist
         if not os.path.exists(folder_path):
