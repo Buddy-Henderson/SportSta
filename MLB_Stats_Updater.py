@@ -9,7 +9,7 @@ from selenium.common.exceptions import TimeoutException, StaleElementReferenceEx
 
 import mysql.connector
 
-from main_Library import formatTeam_DatabaseName
+from main_Library import formatTeam_DatabaseName, delete_table_data
 
 from bs4 import BeautifulSoup
 import time
@@ -98,6 +98,10 @@ def supplyTable_Pitcher_Totals():
 
     cursor = conn.cursor()
     
+    table_Location = "pitcher_total_stats"
+    
+    delete_table_data(db_name, table_Location)
+    
     
     while pageIndex <= pages:
         
@@ -113,8 +117,13 @@ def supplyTable_Pitcher_Totals():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                pitcherNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    pitcherNames.append(aria_label)
          
          
         
@@ -350,7 +359,7 @@ def supplyTable_Pitcher_Totals():
         
         pageIndex +=1
         
-        
+    
     db_count = 0
     data_tuples = []
     for name in pitcherNames:
@@ -399,6 +408,10 @@ def supplyTable_Pitcher_Home():
         database=db_name
     )
 
+    table_Location = "pitcher_home_stats"
+    
+    delete_table_data(db_name, table_Location)
+    
     cursor = conn.cursor()
     
     chrome_options = Options()
@@ -423,8 +436,13 @@ def supplyTable_Pitcher_Home():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                pitcherNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    pitcherNames.append(aria_label)
 
 
         dataIndex = 0
@@ -704,6 +722,10 @@ def supplyTable_Pitcher_Away():
         database=db_name
     )
 
+    table_Location = "pitcher_away_stats"
+    
+    delete_table_data(db_name, table_Location)
+    
     cursor = conn.cursor()
     
     chrome_options = Options()
@@ -728,8 +750,13 @@ def supplyTable_Pitcher_Away():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                pitcherNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    pitcherNames.append(aria_label)
 
 
         dataIndex = 0
@@ -1007,6 +1034,10 @@ def supplyTable_Pitcher_Day():
         database=db_name
     )
 
+    table_Location = "pitcher_day_stats"
+    
+    delete_table_data(db_name, table_Location)
+    
     cursor = conn.cursor()
     
     chrome_options = Options()
@@ -1031,8 +1062,13 @@ def supplyTable_Pitcher_Day():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                pitcherNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    pitcherNames.append(aria_label)
 
 
         dataIndex = 0
@@ -1290,7 +1326,7 @@ def supplyTable_Pitcher_Night():
     Runs = []
     HomeRuns = []
     
-    pages = 29
+    pages = 27
     pageIndex = 1
     
     data_rows = 24
@@ -1308,6 +1344,10 @@ def supplyTable_Pitcher_Night():
         database=db_name
     )
 
+    table_Location = "pitcher_night_stats"
+    
+    delete_table_data(db_name, table_Location)
+    
     cursor = conn.cursor()
     
     chrome_options = Options()
@@ -1332,8 +1372,13 @@ def supplyTable_Pitcher_Night():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                pitcherNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    pitcherNames.append(aria_label)
 
 
         dataIndex = 0
@@ -1601,6 +1646,10 @@ def supplyTable_Pitcher_VsLeft():
         database=db_name
     )
 
+    table_Location = "pitcher_vsleft_stats"
+    
+    delete_table_data(db_name, table_Location)
+    
     cursor = conn.cursor()
     
     chrome_options = Options()
@@ -1625,8 +1674,13 @@ def supplyTable_Pitcher_VsLeft():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                pitcherNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    pitcherNames.append(aria_label)
                 
             
         dataIndex = 0
@@ -1799,6 +1853,10 @@ def supplyTable_Pitcher_VsRight():
         database=db_name
     )
 
+    table_Location = "pitcher_vsleft_stats"
+    
+    delete_table_data(db_name, table_Location)
+    
     cursor = conn.cursor()
     
     chrome_options = Options()
@@ -1823,8 +1881,13 @@ def supplyTable_Pitcher_VsRight():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                pitcherNames.append(aria_label)    
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    pitcherNames.append(aria_label)   
         
             
         dataIndex = 0
@@ -2247,6 +2310,10 @@ def supplyTable_Batter_Total():
         database=db_name
     )
 
+    table_Location = "batter_total_stats"
+    
+    delete_table_data(db_name, table_Location)
+        
     cursor = conn.cursor()
     
     
@@ -2264,8 +2331,13 @@ def supplyTable_Batter_Total():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                batterNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    batterNames.append(aria_label) 
                 
         
         dataIndex = 0
@@ -2587,6 +2659,10 @@ def supplyTable_Batter_Home():
         database=db_name
     )
 
+    table_Location = "batter_home_stats"
+    
+    delete_table_data(db_name, table_Location)
+    
     cursor = conn.cursor()
     
     
@@ -2604,8 +2680,13 @@ def supplyTable_Batter_Home():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                batterNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    batterNames.append(aria_label) 
                 
         
         dataIndex = 0
@@ -2926,6 +3007,10 @@ def supplyTable_Batter_Away():
         database=db_name
     )
 
+    table_Location = "batter_away_stats"
+    
+    delete_table_data(db_name, table_Location)
+    
     cursor = conn.cursor()
     
     
@@ -2943,8 +3028,13 @@ def supplyTable_Batter_Away():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                batterNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    batterNames.append(aria_label) 
                 
         
         dataIndex = 0
@@ -3264,6 +3354,11 @@ def supplyTable_Batter_Day():
         database=db_name
     )
 
+    table_Location = "batter_day_stats"
+    
+    delete_table_data(db_name, table_Location)
+
+
     cursor = conn.cursor()
     
     
@@ -3281,8 +3376,13 @@ def supplyTable_Batter_Day():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                batterNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    batterNames.append(aria_label) 
                 
         
         dataIndex = 0
@@ -3602,6 +3702,11 @@ def supplyTable_Batter_Night():
         database=db_name
     )
 
+    table_Location = "batter_home_stats"
+    
+    delete_table_data(db_name, table_Location)
+
+    
     cursor = conn.cursor()
     
     
@@ -3619,8 +3724,13 @@ def supplyTable_Batter_Night():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                batterNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    batterNames.append(aria_label) 
                 
         
         dataIndex = 0
@@ -3942,6 +4052,10 @@ def supplyTable_Batter_vsLeft():
         database=db_name
     )
 
+    table_Location = "batter_vsLeft_stats"
+    
+    delete_table_data(db_name, table_Location)
+
     cursor = conn.cursor()
     
     
@@ -3959,8 +4073,13 @@ def supplyTable_Batter_vsLeft():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                batterNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    batterNames.append(aria_label) 
                 
         
         dataIndex = 0
@@ -4239,6 +4358,11 @@ def supplyTable_Batter_vsRight():
         database=db_name
     )
 
+    table_Location = "batter_vsright_stats"
+    
+    delete_table_data(db_name, table_Location)
+
+
     cursor = conn.cursor()
     
     
@@ -4256,8 +4380,13 @@ def supplyTable_Batter_vsRight():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                batterNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    batterNames.append(aria_label)
                 
         
         dataIndex = 0
@@ -4543,6 +4672,10 @@ def supplyTable_Team_Total():
         database=db_name
     )
 
+    table_Location = "team_total_stats"
+    
+    delete_table_data(db_name, table_Location)
+
     cursor = conn.cursor()
     
     while pageIndex <= pages:
@@ -4559,8 +4692,13 @@ def supplyTable_Team_Total():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                teamNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    teamNames.append(aria_label) 
                 
         
         dataIndex = 0
@@ -4880,6 +5018,11 @@ def supplyTable_Team_Home():
         database=db_name
     )
 
+    table_Location = "team_home_stats"
+    
+    delete_table_data(db_name, table_Location)
+
+
     cursor = conn.cursor()
     
     while pageIndex <= pages:
@@ -4896,8 +5039,13 @@ def supplyTable_Team_Home():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                teamNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    teamNames.append(aria_label)
                 
         
         dataIndex = 0
@@ -5217,6 +5365,11 @@ def supplyTable_Team_Away():
         database=db_name
     )
 
+    table_Location = "team_away_stats"
+    
+    delete_table_data(db_name, table_Location)
+
+
     cursor = conn.cursor()
     
     while pageIndex <= pages:
@@ -5233,8 +5386,13 @@ def supplyTable_Team_Away():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                teamNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    teamNames.append(aria_label) 
                 
         
         dataIndex = 0
@@ -5554,6 +5712,11 @@ def supplyTable_Team_Day():
         database=db_name
     )
 
+    table_Location = "team_day_stats"
+    
+    delete_table_data(db_name, table_Location)
+
+
     cursor = conn.cursor()
     
     while pageIndex <= pages:
@@ -5570,8 +5733,13 @@ def supplyTable_Team_Day():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                teamNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    teamNames.append(aria_label)
                 
         
         dataIndex = 0
@@ -5891,6 +6059,11 @@ def supplyTable_Team_Night():
         database=db_name
     )
 
+    table_Location = "team_night_stats"
+    
+    delete_table_data(db_name, table_Location)
+
+
     cursor = conn.cursor()
     
     while pageIndex <= pages:
@@ -5907,8 +6080,13 @@ def supplyTable_Team_Night():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                teamNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    teamNames.append(aria_label) 
                 
         
         dataIndex = 0
@@ -6228,6 +6406,10 @@ def supplyTable_Team_1stInning():
         database=db_name
     )
 
+    table_Location = "team_1stinning_stats"
+    
+    delete_table_data(db_name, table_Location)
+
     cursor = conn.cursor()
     
     while pageIndex <= pages:
@@ -6244,8 +6426,13 @@ def supplyTable_Team_1stInning():
             
         for name in names:
             aria_label = name.get('aria-label')
-            if aria_label:
-                teamNames.append(aria_label)
+            if aria_label == "Read more about qualifiers.":
+                
+                continue
+            else:
+                
+                if aria_label is not None:
+                    teamNames.append(aria_label)
                 
         
         dataIndex = 0
@@ -6554,6 +6741,7 @@ def supplyTable_TeamRoster():
         database=db_name
     )
 
+
     cursor = conn.cursor()
     
     team_count = 0
@@ -6838,6 +7026,9 @@ def newSupplyTable_TeamRoster():
                         
            
         tableName = formatTeam_DatabaseName(short_name)
+        
+        delete_table_data(db_name, tableName)
+        
         # Now, iterate through the player names and insert them into the database
         if names:
             cursor = conn.cursor()
