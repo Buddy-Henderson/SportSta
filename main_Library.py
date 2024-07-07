@@ -7774,6 +7774,38 @@ def create_connection(database):
 def close_connection(connection):
     if connection is not None and connection.is_connected():
         connection.close()
+        
+def delete_table_data(database_name, table_name):
+    
+    db_host = '127.0.0.1'  # Replace with your database host
+    db_user = 'root'  # Replace with your database username
+    db_password = 'root'  # Replace with your database password
+    
+    # Connect to your MySQL database
+    conn = mysql.connector.connect(
+            host=db_host,
+            user=db_user,
+            password=db_password,
+            database=database_name
+        )
+
+    cursor = conn.cursor()
+    
+    # Formulate the SQL command to delete all data from the table
+    sql_COMMAND = f"DELETE FROM {table_name};"
+    
+    try:
+        # Execute the command
+        cursor.execute(sql_COMMAND)
+        # Commit the transaction
+        conn.commit()
+        print(f"All data from table {table_name} has been deleted.")
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
+    finally:
+        # Close the cursor and connection
+        cursor.close()
+        conn.close()
 
 def get_NamesFromDatabase(database_Name, table_Name):
     connection = create_connection(database_Name)
