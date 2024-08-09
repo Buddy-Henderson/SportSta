@@ -5,11 +5,11 @@ from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, StaleElementReferenceException
+from selenium.common.exceptions import TimeoutException, StaleElementReferenceException, NoSuchElementException, ElementNotInteractableException
 
 import mysql.connector
 
-from main_Library import formatTeam_DatabaseName, delete_table_data
+from main_Library import formatTeam_DatabaseName, delete_table_data, remove_Accents
 
 from bs4 import BeautifulSoup
 import time
@@ -2076,7 +2076,9 @@ def supplyTable_Arm_Pitcher():
         query = "SELECT Arm FROM pitcher_total_stats WHERE Name = %s"
         cursor.execute(query, (name,))
         result = cursor.fetchone()
-        
+        name = remove_Accents(name)
+        print(name)
+        print(result)
         if result is not None and result[0] is not None and result[0] != "":
             continue
         else:
@@ -2090,7 +2092,10 @@ def supplyTable_Arm_Pitcher():
             chrome_options.add_argument("--process-per-site")
             chrome_options.add_argument("--disable-background-networking")
             chrome_options.add_argument("--disable-background-timer-throttling")
-            #chrome_options.add_argument("--headless")
+            chrome_options.add_argument("--remote-debugging-port=9222") # Add this line
+            chrome_options.add_argument("--disable-gpu") # Add this line
+            chrome_options.add_argument("--disable-software-rasterizer")
+            
             driver = webdriver.Chrome(options=chrome_options)
             driver.set_window_size(1080, 1200)
             driver.get("https://www.rotowire.com/baseball")
@@ -2133,16 +2138,19 @@ def supplyTable_Arm_Pitcher():
                 
                 
                 driver.quit()
+                time.sleep(15)
                 
             except (NoSuchElementException, AttributeError,TimeoutException):
+                print("Found an exception")
                 driver.quit()
                 arm_results.append("N/A")
+                time.sleep(25)
             
         iteration_count += 1
         
         if iteration_count == 10:
             
-            time.sleep(20)
+            time.sleep(30)
         
             
 
@@ -2150,6 +2158,8 @@ def supplyTable_Arm_Pitcher():
     conn.close()
 
     print("Updated Pitcher Arm")
+
+
     
 def supplyTable_Arm_Batter():
     

@@ -21,6 +21,7 @@ from datetime import datetime
 from datetime import date
 import math
 import re
+import unidecode
 
 
 chrome_driver_path = 'C:\\Users\\buddy\\.wdm\\drivers\\chromedriver.exe'
@@ -7890,3 +7891,6 @@ def get_NBA_teamStatData(connection, name, table, stat):
         print("Connection is None")
     return stat_value
 
+def remove_Accents(name):
+    
+    return unidecode.unidecode(name)
