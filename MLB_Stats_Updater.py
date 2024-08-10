@@ -2051,12 +2051,25 @@ def supplyTable_Arm_Pitcher():
 
     names = []
 
-    query = "SELECT Name FROM pitcher_total_stats"
+    # Step 1: Select all names from the 'pitcher_total_stats' table
+    select_query = "SELECT Name FROM pitcher_total_stats"
+    cursor.execute(select_query)
 
-    cursor.execute(query)
-
+    # Step 2: Fetch all the names
     names = [row[0] for row in cursor.fetchall()]
 
+    
+    # Step 3: Insert names into the 'Pitcher_Arms' table, ignoring duplicates
+    insert_query = "INSERT IGNORE INTO pitcher_arms (Name) VALUES (%s)"
+
+    # Executing the insert query for each name
+    for name in names:
+        cursor.execute(insert_query, (name,))
+
+    # Commit the transaction to save the changes
+    conn.commit()
+
+    # Step 4: Close the cursor and connection
     cursor.close()
     conn.close()
 
@@ -2073,7 +2086,7 @@ def supplyTable_Arm_Pitcher():
 
     iteration_count = 0
     for name in names:
-        query = "SELECT Arm FROM pitcher_total_stats WHERE Name = %s"
+        query = "SELECT Arm FROM pitcher_arms WHERE Name = %s"
         cursor.execute(query, (name,))
         result = cursor.fetchone()
         name = remove_Accents(name)
@@ -2129,7 +2142,7 @@ def supplyTable_Arm_Pitcher():
                     if b_element:
                         pitchingArm = b_element.get_text(strip=True)
                         print(str(pitchingArm))
-                update_query = "UPDATE pitcher_total_stats SET Arm = %s WHERE Name = %s"
+                update_query = "UPDATE pitcher_arms SET Arm = %s WHERE Name = %s"
                 data = (pitchingArm, name)
                 cursor.execute(update_query, data)
                 
